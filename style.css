@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* زر القائمة */
+.menu-btn {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    font-size: 22px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* المحتوى */
+.container {
+    padding: 30px 15px;
+}
+
+/* العنوان */
+h1 {
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+
+
+}
+
+/* مشغل الصوت */
+.player {
+    background: white;
+    max-width: 360px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+#episode-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* أزرار التحكم */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.controls button:hover {
+    transform: scale(1.1);
+    background: #5563c1;
+}
+
+/* قائمة الحلقات */
+h2 {
+    color: white;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.episodes {
+    list-style: none;
+    padding: 0;
+    max-width: 360px;
+    margin: 15px auto;
+}
+
+.episodes li {
+    background: rgba(255,255,255,0.9);
+    margin: 10px 0;
+    padding: 14px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.episodes li:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+/* السايد بار */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 270px;
+    height: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar h3 {
+    margin-top: 30px;
+}
+
+/* زر الإغلاق */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* المفضلة */
+#favList {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#favList li {
+    background: #f3f4ff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+ p{
+    color: rgb(7, 23, 126);
+    margin-top: 30px;
+    text-align: center;
+} 
+#favList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* نموذج إضافة حلقة */
+.add-episode {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.add-episode input[type="text"],
+.add-episode input[type="file"] {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.add-episode input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102,126,234,0.2);
+}
+
+.add-episode button {
+    padding: 12px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-episode button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 10px;
+    margin: 15px 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    transition: width 0.1s linear;
+}

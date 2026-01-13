@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>مشغل البودكاست</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- زر فتح القائمة -->
+<button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+<div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">✖</button>
+    <h3>❤️ المفضلة</h3>
+    <ul id="favList"></ul>
+
+
+</div>
+
+
+<div class="container">
+    <h1>🎧 مشغل البودكاست</h1>
+    <p>متفرقات</p>
+    <div class="player">
+        <p id="episode-title">اختر حلقة</p>
+
+        <audio id="audio"></audio>
+
+        <div class="controls">
+    <button onclick="rewind()" title="الرجوع للخلف 10 ثواني">⏪</button>
+    <button onclick="playPause()" title="تشغيل / إيقاف">▶️</button>
+    <button onclick="forward()" title="إلى الأمام 10 ثواني">⏩</button>
+    <button onclick="addToFav()" title="إضافة إلى المفضلة">❤️</button>
+
+</div>
+<div class="progress-container" onclick="seek(event)">
+    <div class="progress" id="progress"></div>
+</div>
+
+    <h3>➕ إضافة حلقة</h3>
+
+<div class="add-episode">
+    <input type="text" id="newTitle" placeholder="اسم الحلقة">
+    <input type="file" id="newFile" accept="audio/*">
+    <button onclick="addEpisode()">إضافة</button>
+</div>
+
+    </div>
+
+    <h2>📻 الحلقات</h2>
+    <ul class="episodes">
+        <li onclick="playEpisode('thfez.mpeg','الحلقة 1:   تحفيز ')">الحلقة 1:   تحفيز</li>
+        <li onclick="playEpisode('al rzk.mpeg','الحلقة 2:  الرزق')">الحلقة 2:  الرزق</li>
+        <li onclick="playEpisode('nho al ngah.mpeg','الحلقة 3:   الطريق نحو النجاح')">الحلقة 3:   الطريق نحو النجاح</li>
+        <li onclick="playEpisode('فما ظنكم.mpeg','الحلقة 4:     فما ظنكم برب العالمين')">الحلقة 4:     فما ظنكم برب العالمين</li>
+        <li onclick="playEpisode('تعلم فن الكلام.mpeg','الحلقة 5:   تعلم فن الكلام')">الحلقة 5: تعلم فمن الكلام</li>
+        <li onclick="playEpisode('فن التطنيش.mpeg','الحلقة 6:     فن التطنيش')">الحلقة 6:      فن التطنيش</li>
+    </ul>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
