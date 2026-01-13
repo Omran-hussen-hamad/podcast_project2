@@ -38,10 +38,35 @@ function playEpisode(src, name) {
 }
 
 /* تشغيل / إيقاف */
+const playBtn = document.getElementById("playBtn");
+
 function playPause() {
     if (!audio.src) return;
-    audio.paused ? audio.play() : audio.pause();
+
+    if (audio.paused) {
+        audio.play();
+        playBtn.textContent = "⏸";
+    } else {
+        audio.pause();
+        playBtn.textContent = "▶️";
+    }
 }
+
+/* لما ينتهي الصوت يرجع الرمز */
+audio.addEventListener("ended", () => {
+    playBtn.textContent = "▶️";
+});
+
+/* لما المستخدم يختار حلقة جديدة */
+function playEpisode(src, name) {
+    currentSrc = src;
+    currentEpisode = name;
+    audio.src = src;
+    titleEl.textContent = name;
+    audio.play();
+    playBtn.textContent = "⏸";
+}
+
 
 /* تقديم وتأخير */
 function forward() {
@@ -136,6 +161,23 @@ function seek(e) {
     const percent = clickX / width;
     audio.currentTime = percent * audio.duration;
 }
+const currentTimeEl = document.getElementById("currentTime");
+const durationEl = document.getElementById("duration");
+
+function formatTime(seconds) {
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+}
+
+audio.addEventListener("loadedmetadata", () => {
+    durationEl.textContent = formatTime(audio.duration);
+});
+
+audio.addEventListener("timeupdate", () => {
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+});
+
 
 /* تحميل كل شيء */
 loadDefaultEpisodes();
