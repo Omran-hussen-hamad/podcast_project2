@@ -29,7 +29,8 @@
 
         <div class="controls">
     <button onclick="rewind()" title="الرجوع للخلف 10 ثواني">⏪</button>
-    <button onclick="playPause()" title="تشغيل / إيقاف">▶️</button>
+    <button id="playBtn" onclick="playPause()" title="تشغيل / إيقاف">▶️</button>
+
     <button onclick="forward()" title="إلى الأمام 10 ثواني">⏩</button>
     <button onclick="addToFav()" title="إضافة إلى المفضلة">❤️</button>
 
@@ -37,6 +38,11 @@
 <div class="progress-container" onclick="seek(event)">
     <div class="progress" id="progress"></div>
 </div>
+<div class="time-display">
+    <span id="currentTime">00:00</span>
+    <span id="duration">00:00</span>
+</div>
+
 
     <h3>➕ إضافة حلقة</h3>
 
@@ -63,3 +69,4 @@
 
 </body>
 </html>
+
